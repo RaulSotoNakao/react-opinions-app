@@ -1,6 +1,6 @@
 import './Opinions.css';
-import OpinionContent from '../components/Opinions/OpinionContent/OpinionContent.js';
-import Card from '../components/UI/Card/Card.js'
+import OpinionContent from '../../components/Opinions/OpinionContent/OpinionContent.js';
+import Card from '../../components/UI/Card/Card.js'
 
 function Opinions(props) {
     return (

@@ -2,9 +2,18 @@
 import './OpinionContent.css'
 import OpinionDate from '../OpinionDate/OpinionDate.js'
 import Card from '../../UI/Card/Card';
+import React, { useState } from 'react';
 
 function OpinionContent(props) {
 
+  const [title, setTitle] = useState(props.title);
+
+  const clickHandlerChangeComment = () => {
+    setTitle('updated');
+    console.log('function',title)
+
+  }
+  console.log('component',title)
   return (
     <Card className="opinion-body">
       <div className="opinion-side-section">
@@ -15,7 +24,7 @@ function OpinionContent(props) {
       <div className="opinion-content-section">
         <div className="opinion-content-item">
           <p className="opinion-content-paragraph">
-            {props.title}
+            {title}
           </p>
         </div>
         <div className="opinion-content-item">
@@ -27,6 +36,9 @@ function OpinionContent(props) {
           <p className="opinion-content-paragraph">
             {props.note}
           </p>
+        </div>
+        <div className="opinion-content-item">
+          <button onClick={clickHandlerChangeComment}>Change comment</button>
         </div>
       </div>
     </Card>

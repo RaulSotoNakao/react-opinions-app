@@ -1,0 +1,18 @@
+.opinion-form {
+  background-color: #282c34;
+  width: 80%;
+  margin: 5px;
+}
+
+input {
+  width: 100%;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  border:0;
+  border-radius:10px;
+  padding:5px;
+
+}
+
+button {
+    margin: 5px;
+}

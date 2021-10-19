@@ -1,0 +1,16 @@
+.form-item{
+    flex-wrap: wrap
+
+}
+.form-item-label {
+    width: 200px;
+    text-align: left;
+    color: white;
+    font-size: calc(8px + 2vmin);
+
+}
+
+.form-item-input {
+    width: 200px;
+
+}

@@ -1,9 +1,9 @@
 import './App.css';
-import Opinions from './Opinions';
-
+import Opinions from './Opinions/Opinions.js';
+import NewOpinion from './Opinions/NewOpinion.js'
 function App() {
 
-  const peopleOpinions = [
+  let peopleOpinions = [
     {
       title: 'Wizard of pop-corns',
       comment: 'good, but more information is needed',
@@ -22,7 +22,13 @@ function App() {
       date: new Date(2005, 9, 8),
       note: 9
     }
-  ]
+  ];
+
+  const addOpinionHandler = (newOpinionHandler) => {
+    peopleOpinions = [...peopleOpinions, newOpinionHandler];
+
+    console.log(peopleOpinions);
+  }
 
   return (
     <div className="App">
@@ -32,6 +38,7 @@ function App() {
         </p>
         you can see below for our opinions
       </header>
+      <NewOpinion onAddOpinionHandler={addOpinionHandler} />
       <Opinions opinions={peopleOpinions} />
     </div>
   );

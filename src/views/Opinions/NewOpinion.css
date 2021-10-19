@@ -1,0 +1,13 @@
+.new-opinion {
+  background-color: aquamarine;
+  width: 80%;
+  margin: 1% 10%;
+  font-size: calc(10px + 2vmin);
+
+}
+.opinion-form-title {
+  color: #282c34;
+  width: 100%;
+  font-size: calc(15px + 2vmin);
+  margin: 5px;
+}
