@@ -1,9 +1,10 @@
 import './Opinions.css';
-import OpinionContent from '../components/OpinionContent/OpinionContent.js';
+import OpinionContent from '../components/Opinions/OpinionContent/OpinionContent.js';
+import Card from '../components/UI/Card/Card.js'
 
 function Opinions(props) {
     return (
-        <div className="opinions">
+        <Card className="opinions">
             <OpinionContent
                 title={props.opinions[0].title}
                 comment={props.opinions[0].comment}
@@ -23,7 +24,7 @@ function Opinions(props) {
                 date={props.opinions[2].date}
             ></OpinionContent>
 
-        </div>
+        </Card>
     );
 }
 

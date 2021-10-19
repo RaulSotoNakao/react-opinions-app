@@ -1,12 +1,7 @@
 .opinion-body {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
     background-color: rgb(51, 163, 100);
     color: rgb(41, 64, 65);
     border: 1px solid cornflowerblue;
-    border-radius: 25px;
     margin: 1rem;
     width: 100%;
     

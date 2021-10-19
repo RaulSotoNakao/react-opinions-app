@@ -1,14 +1,15 @@
 
 import './OpinionContent.css'
 import OpinionDate from '../OpinionDate/OpinionDate.js'
+import Card from '../../UI/Card/Card';
 
 function OpinionContent(props) {
 
   return (
-    <div className="opinion-body">
+    <Card className="opinion-body">
       <div className="opinion-side-section">
         <div className="opinion-item-date">
-        <OpinionDate date={props.date} />
+          <OpinionDate date={props.date} />
         </div>
       </div>
       <div className="opinion-content-section">
@@ -28,8 +29,7 @@ function OpinionContent(props) {
           </p>
         </div>
       </div>
-    </div>
-
+    </Card>
   );
 }
 
