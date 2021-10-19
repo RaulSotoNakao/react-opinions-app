@@ -27,7 +27,6 @@ function OpinionContent(props) {
             {props.note}
           </p>
         </div>
-
       </div>
     </div>
 

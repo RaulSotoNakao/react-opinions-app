@@ -8,6 +8,7 @@
     border: 1px solid cornflowerblue;
     border-radius: 25px;
     margin: 1rem;
+    width: 100%;
     
   }
   
@@ -34,7 +35,8 @@
     margin: 2px;
     border-bottom: 3px solid aquamarine;
     border-radius: 15px;
-  
+    font-size: calc(3px + 2vmin);
+
   }
   
   .opinion-item-date {
@@ -43,6 +45,7 @@
     margin: 2px;
     border: 3px solid aquamarine;
     border-radius: 15px;
+    font-size: calc(3px + 2vmin);
 
   }
   

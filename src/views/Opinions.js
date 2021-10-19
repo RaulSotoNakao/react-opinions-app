@@ -3,7 +3,7 @@ import OpinionContent from '../components/OpinionContent/OpinionContent.js';
 
 function Opinions(props) {
     return (
-        <div className="Opinions">
+        <div className="opinions">
             <OpinionContent
                 title={props.opinions[0].title}
                 comment={props.opinions[0].comment}
