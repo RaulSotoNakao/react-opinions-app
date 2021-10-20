@@ -76,10 +76,8 @@ function OpinionForm(props) {
                     <FormItem label="date">
                         <input
                             type="date"
-                            id="start"
-                            name="trip-start"
                             min="2018-01-01"
-                            max="2018-12-31"
+                            max="2020-12-31"
                             value={opinionPayload.enteredDate}
                             onChange={dateChangeHandler} />
                     </FormItem>

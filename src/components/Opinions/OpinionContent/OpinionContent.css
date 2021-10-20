@@ -3,7 +3,7 @@
     color: rgb(41, 64, 65);
     border: 1px solid cornflowerblue;
     margin: 0.5rem;
-    width: 100%;
+    width: 48%;
     
   }
   
@@ -30,7 +30,7 @@
     margin: 2px;
     border-bottom: 3px solid aquamarine;
     border-radius: 15px;
-    font-size: calc(3px + 2vmin);
+    font-size: calc(5px + 1vmin);
 
   }
   
@@ -40,7 +40,7 @@
     margin: 2px;
     border: 3px solid aquamarine;
     border-radius: 15px;
-    font-size: calc(3px + 2vmin);
+    font-size: calc(5px + 1vmin);
 
   }
   

@@ -11,8 +11,12 @@ function Opinions(props) {
 
     const yearFilterChangeHandler = (year) => {
         setFilteredYear(year);
-    console.log(year)
     }
+
+
+    const opinionStructure = (arrowFunctionJsx) => props.opinions
+        .filter(opinion => `${opinion.date && opinion.date.getFullYear()}` === filteredYear)
+        .map(arrowFunctionJsx)
 
     return (
         <div>
@@ -20,24 +24,15 @@ function Opinions(props) {
                 <OpinionFilter onYearFilterChange={yearFilterChangeHandler} selected={filteredYear}></OpinionFilter>
             </Card>
             <Card className="opinions">
-                <OpinionContent
-                    title={props.opinions[0].title}
-                    comment={props.opinions[0].comment}
-                    note={props.opinions[0].note}
-                    date={props.opinions[0].date}
-                ></OpinionContent>
-                <OpinionContent
-                    title={props.opinions[1].title}
-                    comment={props.opinions[1].comment}
-                    note={props.opinions[1].note}
-                    date={props.opinions[1].date}
-                ></OpinionContent>
-                <OpinionContent
-                    title={props.opinions[2].title}
-                    comment={props.opinions[2].comment}
-                    note={props.opinions[2].note}
-                    date={props.opinions[2].date}
-                ></OpinionContent>
+                {opinionStructure((opinion, index) => (
+                    <OpinionContent
+                        key={`${index}-opinion`}
+                        title={opinion.title}
+                        comment={opinion.comment}
+                        note={opinion.note}
+                        date={opinion.date}
+                    ></OpinionContent>
+                ))}
             </Card>
         </div>
     );
