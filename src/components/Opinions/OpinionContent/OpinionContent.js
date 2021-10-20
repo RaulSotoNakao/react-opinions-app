@@ -2,6 +2,7 @@
 import './OpinionContent.css'
 import OpinionDate from '../OpinionDate/OpinionDate.js'
 import Card from '../../UI/Card/Card';
+import ButtonOpinion from '../../UI/ButtonOpinion/ButtonOpinion.js'
 import React, { useState } from 'react';
 
 function OpinionContent(props) {
@@ -34,8 +35,8 @@ function OpinionContent(props) {
             {props.note}
           </p>
         </div>
-        <div className="opinion-content-item">
-          <button onClick={clickHandlerChangeComment}>Change comment</button>
+        <div className="button-margin">
+          <ButtonOpinion label="Change comment" onButtonClick={clickHandlerChangeComment} />
         </div>
       </div>
     </Card>

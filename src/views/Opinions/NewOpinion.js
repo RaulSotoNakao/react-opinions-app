@@ -1,6 +1,6 @@
 import './NewOpinion.css';
 import Card from '../../components/UI/Card/Card.js'
-import OpinionForm from '../../components/Opinions/OpinionForm/OpinionForm.js'
+import OpinionFormLayout from '../../components/Opinions/OpinionForm/OpinionFormLayout.js'
 
 function NewOpinion(props) {
     const updateOpinionPayload = (saveOpinionPayload) => {
@@ -14,7 +14,7 @@ function NewOpinion(props) {
             <h2 className="opinion-form-title">
                 Form Opinion
             </h2>
-            <OpinionForm onSaveOpinionPayload={updateOpinionPayload}/>
+            <OpinionFormLayout onSaveOpinionPayload={updateOpinionPayload}/>
         </Card>
     );
 }

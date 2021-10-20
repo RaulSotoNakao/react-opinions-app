@@ -16,3 +16,7 @@ input, select {
 button {
     margin: 5px;
 }
+
+.button-margin {
+  margin:5px;
+}
