@@ -50,7 +50,7 @@ function OpinionForm(props) {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form >
             <div>
                 <FormItem label="title">
                     <input type="text" value={opinionPayload.enteredTitle} onChange={titleChangeHandler} />
@@ -82,6 +82,7 @@ function OpinionForm(props) {
                 </FormItem>
             </div>
             <Card className="button-margin">
+                <ButtonOpinion label="Cancel" onButtonClick={props.onCanelForm} />
                 <ButtonOpinion label="Add comment" onButtonClick={submitHandler} />
             </Card>
         </form>

@@ -10,8 +10,10 @@ function OpinionFormLayout(props) {
 
     const updateOpinionPayload = (opinionPayloadSubmited) => {
         props.onSaveOpinionPayload(opinionPayloadSubmited);
-        setFormContentToShow('buttonContent')
+        setButtonContent('buttonContent')
     }
+    const setButtonContent = () => setFormContentToShow('buttonContent')
+
 
     const addButtonClicked = () => {
         setFormContentToShow('formContent')
@@ -19,7 +21,7 @@ function OpinionFormLayout(props) {
 
     const formContent = {
         formContent:
-            <OpinionForm onSaveOpinionPayload={updateOpinionPayload} />,
+            <OpinionForm onSaveOpinionPayload={updateOpinionPayload} onCanelForm={setButtonContent} />,
         buttonContent: 
             <ButtonOpinion label="Add New Opinion" onButtonClick={addButtonClicked} />
     }
