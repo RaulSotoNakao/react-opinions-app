@@ -1,12 +1,23 @@
 import './Opinions.css';
 import OpinionContent from '../../components/Opinions/OpinionContent/OpinionContent.js';
-import Card from '../../components/UI/Card/Card.js'
-import OpinionFilter from '../../components/Opinions/OpinionFilter/OpinionFilter.js'
+import Card from '../../components/UI/Card/Card.js';
+import OpinionFilter from '../../components/Opinions/OpinionFilter/OpinionFilter.js';
+import React, { useState } from 'react';
+
+
 function Opinions(props) {
+
+    const [filteredYear, setFilteredYear] = useState('2020')
+
+    const yearFilterChangeHandler = (year) => {
+        setFilteredYear(year);
+    console.log(year)
+    }
+
     return (
         <div>
             <Card className="opinions">
-                <OpinionFilter ></OpinionFilter>
+                <OpinionFilter onYearFilterChange={yearFilterChangeHandler} selected={filteredYear}></OpinionFilter>
             </Card>
             <Card className="opinions">
                 <OpinionContent

@@ -5,7 +5,6 @@ function VerticalSlide(props) {
 
     const [slideValue, setSlideValue] = useState({ enteredSlideValue: '0' });
 
-
     const slideChangeHandler = (event) => {
         setSlideValue({ enteredSlideValue: event.target.value })
     }

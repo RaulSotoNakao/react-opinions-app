@@ -26,8 +26,6 @@ function App() {
 
   const addOpinionHandler = (newOpinionHandler) => {
     peopleOpinions = [...peopleOpinions, newOpinionHandler];
-
-    console.log(peopleOpinions);
   }
 
   return (

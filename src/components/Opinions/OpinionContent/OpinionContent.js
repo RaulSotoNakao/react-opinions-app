@@ -10,10 +10,7 @@ function OpinionContent(props) {
 
   const clickHandlerChangeComment = () => {
     setTitle('updated');
-    console.log('function',title)
-
   }
-  console.log('component',title)
   return (
     <Card className="opinion-body">
       <div className="opinion-side-section">
