@@ -13,10 +13,22 @@ function Opinions(props) {
         setFilteredYear(year);
     }
 
-
-    const opinionStructure = (arrowFunctionJsx) => props.opinions
-        .filter(opinion => `${opinion.date && opinion.date.getFullYear()}` === filteredYear)
-        .map(arrowFunctionJsx)
+    const opinionFilteredByYear = props.opinions.filter(opinion => `${opinion.date && opinion.date.getFullYear()}` === filteredYear);
+    const opinionJsxContent = {
+        defaultContent: (opinionList) =>
+            opinionList.map((opinion, index) => (
+                <OpinionContent
+                    key={`${index}-opinion`}
+                    title={opinion.title}
+                    comment={opinion.comment}
+                    note={opinion.note}
+                    date={opinion.date}
+                ></OpinionContent>
+            ))
+        ,
+        notFoundContent: () => <h2>No opinions found</h2>
+    }
+    const opinionContent = opinionFilteredByYear.length > 0 ? opinionJsxContent.defaultContent(opinionFilteredByYear) : opinionJsxContent.notFoundContent();
 
     return (
         <div>
@@ -24,15 +36,7 @@ function Opinions(props) {
                 <OpinionFilter onYearFilterChange={yearFilterChangeHandler} selected={filteredYear}></OpinionFilter>
             </Card>
             <Card className="opinions">
-                {opinionStructure((opinion, index) => (
-                    <OpinionContent
-                        key={`${index}-opinion`}
-                        title={opinion.title}
-                        comment={opinion.comment}
-                        note={opinion.note}
-                        date={opinion.date}
-                    ></OpinionContent>
-                ))}
+                {opinionContent}
             </Card>
         </div>
     );
