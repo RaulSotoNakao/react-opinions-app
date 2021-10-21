@@ -7,6 +7,30 @@ const initialPeopleOpinions = [
   {
     title: 'Wizard of pop-corns',
     comment: 'good, but more information is needed',
+    date: new Date(2020, 6, 7),
+    note: 5
+  },
+  {
+    title: 'Wizard of pop-corns',
+    comment: 'good, but more information is needed',
+    date: new Date(2020, 7, 7),
+    note: 5
+  },
+  {
+    title: 'Wizard of pop-corns',
+    comment: 'good, but more information is needed',
+    date: new Date(2020, 6, 7),
+    note: 5
+  },
+  {
+    title: 'Wizard of pop-corns',
+    comment: 'good, but more information is needed',
+    date: new Date(2020, 7, 7),
+    note: 5
+  },
+  {
+    title: 'Wizard of pop-corns',
+    comment: 'good, but more information is needed',
     date: new Date(2020, 7, 7),
     note: 5
   },

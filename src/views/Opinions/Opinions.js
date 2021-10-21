@@ -18,7 +18,7 @@ function Opinions(props) {
     return (
         <div>
             <Card className="opinions">
-                <OpinionFilter onYearFilterChange={yearFilterChangeHandler} selected={filteredYear}></OpinionFilter>
+                <OpinionFilter onYearFilterChange={yearFilterChangeHandler} selected={filteredYear} opinionList={opinionFilteredByYear}></OpinionFilter>
             </Card>
             <OpinionList opinionList={opinionFilteredByYear} />
         </div>

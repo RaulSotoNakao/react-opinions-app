@@ -2,12 +2,43 @@ import './OpinionFilter.css';
 import Card from '../../UI/Card/Card.js'
 import FormItem from '../../UI/Form/FormItem';
 import VerticalSlide from '../../UI/VerticalSlide/VerticalSlide.js'
+import React, { useState } from 'react';
 
 function OpinionFilter(props) {
 
     const yearFilterHandler = (event) => {
         props.onYearFilterChange(event.target.value);
     }
+
+    let listVerticalSlide = [
+        { label: 'January', numberOpinions: 0 },
+        { label: 'February', numberOpinions: 0 },
+        { label: 'March', numberOpinions: 0 },
+        { label: 'April', numberOpinions: 0 },
+        { label: 'May', numberOpinions: 0 },
+        { label: 'June', numberOpinions: 0 },
+        { label: 'July', numberOpinions: 0 },
+        { label: 'August', numberOpinions: 0 },
+        { label: 'September', numberOpinions: 0 },
+        { label: 'October', numberOpinions: 0 },
+        { label: 'November', numberOpinions: 0 },
+        { label: 'December', numberOpinions: 0 },
+    ]
+
+    const mergeVerticalSlideWithNumberOpinionsMonth = () => {
+        console.log(props.opinionList)
+        console.log(listVerticalSlide)
+         props.opinionList.map(opinion => {
+            const monthIndex = opinion.date.getMonth();
+            const opinionToReplace = { ...listVerticalSlide[monthIndex], numberOpinions: listVerticalSlide[monthIndex].numberOpinions + 1 }
+            return listVerticalSlide[monthIndex] = opinionToReplace
+        })
+    }
+
+    const verticalSlideContentJsx = (jsx) => {
+        mergeVerticalSlideWithNumberOpinionsMonth();
+        
+        return listVerticalSlide.map(jsx)}
 
     return (
         <Card className="opinion-filter">
@@ -21,18 +52,7 @@ function OpinionFilter(props) {
                     </select>
                 </FormItem>
             </Card>
-            <VerticalSlide label="January" />
-            <VerticalSlide label="February" />
-            <VerticalSlide label="March" />
-            <VerticalSlide label="April" />
-            <VerticalSlide label="May" />
-            <VerticalSlide label="June" />
-            <VerticalSlide label="July" />
-            <VerticalSlide label="August" />
-            <VerticalSlide label="September" />
-            <VerticalSlide label="October" />
-            <VerticalSlide label="November" />
-            <VerticalSlide label="December" />
+            {verticalSlideContentJsx((slide, i) => <VerticalSlide key={`${i}-slide`} label={slide.label} slideValue={slide.numberOpinions} />)}
         </Card>
     );
 }
