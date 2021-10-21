@@ -26,8 +26,6 @@ function OpinionFilter(props) {
     ]
 
     const mergeVerticalSlideWithNumberOpinionsMonth = () => {
-        console.log(props.opinionList)
-        console.log(listVerticalSlide)
          props.opinionList.map(opinion => {
             const monthIndex = opinion.date.getMonth();
             const opinionToReplace = { ...listVerticalSlide[monthIndex], numberOpinions: listVerticalSlide[monthIndex].numberOpinions + 1 }
@@ -37,7 +35,6 @@ function OpinionFilter(props) {
 
     const verticalSlideContentJsx = (jsx) => {
         mergeVerticalSlideWithNumberOpinionsMonth();
-        
         return listVerticalSlide.map(jsx)}
 
     return (
