@@ -1,78 +1,62 @@
 import './App.css';
 import Opinions from './Opinions/Opinions.js';
-import NewOpinion from './Opinions/NewOpinion.js'
-import React, { useState } from 'react';
+import Test from './Test/Test.js'
+import StylingComponent from './StylingComponent/StylingComponent.js'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-const initialPeopleOpinions = [
-  {
-    title: 'Wizard of pop-corns',
-    comment: 'good, but more information is needed',
-    date: new Date(2020, 6, 7),
-    note: 5
-  },
-  {
-    title: 'Wizard of pop-corns',
-    comment: 'good, but more information is needed',
-    date: new Date(2020, 7, 7),
-    note: 5
-  },
-  {
-    title: 'Wizard of pop-corns',
-    comment: 'good, but more information is needed',
-    date: new Date(2020, 6, 7),
-    note: 5
-  },
-  {
-    title: 'Wizard of pop-corns',
-    comment: 'good, but more information is needed',
-    date: new Date(2020, 7, 7),
-    note: 5
-  },
-  {
-    title: 'Wizard of pop-corns',
-    comment: 'good, but more information is needed',
-    date: new Date(2020, 7, 7),
-    note: 5
-  },
-  {
-    title: 'Wizard of chocolate',
-    comment: 'boooring!',
-    date: new Date(2019, 6, 7),
-    note: 2
-  },
-  {
-    title: 'Wizard of ice-cream',
-    comment: 'good taste and amazing!',
-    date: new Date(2018, 9, 8),
-    note: 9
-  }
-];
+
 
 function App() {
 
-  const [peopleOpinions, setPeopleOpinions] = useState(initialPeopleOpinions)
-
-  function parseDate(s) {
-    var b = s.split(/\D/);
-    return new Date(b[0], --b[1], b[2]);
-  }
-  const addOpinionHandler = (newOpinionHandler) => {
-    const date = newOpinionHandler.date ? parseDate(newOpinionHandler.date) : undefined;
-    const opinionHandlerParsed = { ...newOpinionHandler, date }
-    setPeopleOpinions(prevOpinions => [...prevOpinions, opinionHandlerParsed]);
-  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          OPINION BLOG
-        </p>
-        you can see below for our opinions
-      </header>
-      <NewOpinion onAddOpinionHandler={addOpinionHandler} />
-      <Opinions opinions={peopleOpinions} />
-    </div>
+    <Router>
+
+      <div className="App">
+        <header className="App-header">
+          <p>
+            React App
+          </p>
+          <nav className="top-nav">
+            <ul className="top-nav">
+              <li className="top-nav">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="top-nav">
+                <Link to="/Opinions">Opinions</Link>
+              </li>
+              <li className="top-nav">
+                <Link to="/Test">Test</Link>
+              </li>
+              <li className="top-nav">
+                <Link to="/StylingComponent">StylingComponent</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <Switch>
+          <Route path="/Opinions">
+              <Opinions />
+          </Route>
+          <Route path="/Test">
+              <Test />
+          </Route>
+          <Route path="/StylingComponent">
+            <StylingComponent />
+          </Route>
+          <Route path="/">
+          </Route>
+
+        </Switch>
+
+      </div>
+    </Router>
   );
 }
 

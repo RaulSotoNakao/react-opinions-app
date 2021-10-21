@@ -2,7 +2,6 @@ import './OpinionFilter.css';
 import Card from '../../UI/Card/Card.js'
 import FormItem from '../../UI/Form/FormItem';
 import VerticalSlide from '../../UI/VerticalSlide/VerticalSlide.js'
-import React, { useState } from 'react';
 
 function OpinionFilter(props) {
 

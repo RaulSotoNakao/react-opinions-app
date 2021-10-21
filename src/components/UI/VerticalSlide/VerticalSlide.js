@@ -2,7 +2,7 @@ import './VerticalSlide.css';
 
 function VerticalSlide(props) {
 
-    const verticalStyle = props.slideValue > 0 ? {color: 'white', 'font-size': 'calc(7px + 1vmin)'}: {}
+    const verticalStyle = props.slideValue > 0 ? {color: 'white', 'fontSize': 'calc(7px + 1vmin)'}: {}
 
     return (
         <div className="slider-content">
