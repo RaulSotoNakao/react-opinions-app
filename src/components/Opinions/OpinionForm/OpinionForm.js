@@ -3,6 +3,7 @@ import Card from '../../UI/Card/Card.js'
 import FormItem from '../../UI/Form/FormItem.js'
 import React, { useState } from 'react';
 import ButtonOpinion from '../../UI/ButtonOpinion/ButtonOpinion.js'
+import OpinionModalValidator from '../OpinionModalValidator/OpinionModalValidator';
 
 function OpinionForm(props) {
 
@@ -12,6 +13,8 @@ function OpinionForm(props) {
         enteredNote: '',
         enteredDate: ''
     });
+
+    const [errorState, setErrors] = useState({ isErrors: false, errors: [] });
 
     const titleChangeHandler = (event) => {
         setOpinionPayload(
@@ -34,12 +37,24 @@ function OpinionForm(props) {
     }
 
     const submitHandler = () => {
+
         const opinionPayloadSubmited = {
             title: opinionPayload.enteredTitle,
             comment: opinionPayload.enteredComment,
             note: opinionPayload.enteredNote,
             date: opinionPayload.enteredDate
         };
+
+        const validations = validateForm(opinionPayloadSubmited).filter(input => !input.valid);
+        validations.some(input => !input.valid) ? emitErrors(validations) : savePayload(opinionPayloadSubmited);
+
+    };
+
+    const emitErrors = (errors) => {
+        setErrors({ isErrors: true, errors })
+    }
+
+    const savePayload = (opinionPayloadSubmited) => {
         props.onSaveOpinionPayload(opinionPayloadSubmited);
         setOpinionPayload({
             enteredTitle: '',
@@ -47,10 +62,34 @@ function OpinionForm(props) {
             enteredNote: '',
             enteredDate: ''
         })
+
+    }
+    const notNullInput = (input) => {
+        return input !== null && input !== undefined && input.trim().length > 0
+    }
+    const closeModal = () => {
+        setErrors({ isErrors: false, errors: [] });
+    }
+
+    const validateForm = (opinionPayload) => {
+
+        const titleCondition = notNullInput(opinionPayload.title);
+        const noteCondition = notNullInput(opinionPayload.note) && parseInt(opinionPayload.note) > 0;
+        const dateCondition = notNullInput(opinionPayload.date);
+
+        const titleText = 'title is obligatory field'
+        const noteText = 'note has to be greater than 0'
+        const dateText = 'date is obligatory field'
+
+        return [
+            { valid: titleCondition, text: titleText },
+            { valid: noteCondition, text: noteText },
+            { valid: dateCondition, text: dateText },
+        ]
     }
 
     return (
-        <form >
+        <div >
             <div>
                 <FormItem label="title">
                     <input type="text" value={opinionPayload.enteredTitle} onChange={titleChangeHandler} />
@@ -85,7 +124,8 @@ function OpinionForm(props) {
                 <ButtonOpinion label="Cancel" onButtonClick={props.onCanelForm} />
                 <ButtonOpinion label="Add comment" onButtonClick={submitHandler} />
             </Card>
-        </form>
+            <OpinionModalValidator errorState={errorState} onCloseModal={closeModal}></OpinionModalValidator>
+        </div>
     );
 }
 
