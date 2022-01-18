@@ -8,7 +8,7 @@ function OpinionFormLayout(props) {
 
 
     return (
-        <button className="button-opinion" onClick={buttonClick} >{props.label}</button>
+        <button disabled={props.disabled || false} className="button-opinion" onClick={buttonClick} >{props.label}</button>
     );
 }
 

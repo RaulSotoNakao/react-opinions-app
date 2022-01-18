@@ -29,3 +29,9 @@
 .button-opinion:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
+
+.button-opinion:disabled {
+  background-color: rgb(131, 131, 131);
+  cursor: not-allowed;
+
+}
